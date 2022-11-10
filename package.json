@@ -1,0 +1,44 @@
+{
+  "name": "delay-unmount",
+  "version": "0.1.0",
+  "description": "A simple component and hook to create unmount and mount animations in reactjs",
+  "author": {
+    "name": "Althaf Ahamed",
+    "email": "althafahamed07@gmail.com",
+    "url": "https://www.linkedin.com/in/althafahd/"
+  },
+  "keywords": [
+    "react",
+    "delay-unmount",
+    "useDelayUnmount",
+    "unmount animation",
+    "unmount transition",
+    "show transition",
+    "unmount",
+    "transition hide",
+    "delayed unmount",
+    "css animation",
+    "use delayed unmount",
+    "animation"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "build": "babel src --out-dir .",
+    "bump": "npm version"
+  },
+  "license": "MIT",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AlthafAhd07/delay-unmount"
+  },
+  "bugs": {
+    "url": "https://github.com/AlthafAhd07/delay-unmount/issues"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@babel/preset-react": "^7.14.5"
+  }
+}
