@@ -8,6 +8,73 @@ You can animate your React component while mounting and unmounting.
 
 <br/>
 
+## Example
+
+  <pre>
+import { useState } from "react";
+import Delay from "delay-unmount";
+
+import YourComponent from "./YourComponent";
+
+function App() {
+  const [visible, setVisible] = useState(false);
+
+  return (
+    &lt;div className="App">
+      &lt;button onClick={() => setVisible((old) => !old)}>Toggle Mount&lt;/button>
+
+      &lt;Delay
+        component={YourComponent}
+        dependancy={visible}
+        delay="1000"
+        mount="mount"
+        unmount="unmount"
+      />
+    &lt;/div>
+  );
+}
+
+export default App;
+
+  </pre>
+
+## CSS
+
+  <pre>
+.unmount {
+  animation: outAnimation 1000ms ease-out;
+}
+
+@keyframes outAnimation {
+  0% {
+    scale: 1;
+    opacity: 1;
+  }
+  100% {
+    scale: 0;
+    opacity: 0;
+  }
+}
+
+.mount {
+  animation: inAnimation 600ms ease-in;
+}
+
+@keyframes inAnimation {
+  0% {
+    scale: 0;
+    opacity: 0;
+  }
+  100% {
+    scale: 1;
+    opacity: 1;
+  }
+}
+
+  </pre>
+
+<br/>
+
 ## How it will work
 
 We should assign a classname to the given component ( Delay ) and style it using css ( Animations ) . To assign the classname you should use the `unmount` and `mount` props.
@@ -31,31 +98,11 @@ We should assign a classname to the given component ( Delay ) and style it using
 
 <br/>
 
-## Code Guide
-
-`import Delay from "delay-unmount";`
-
-`<Delay`\
- &nbsp; &nbsp; &nbsp;`component={YourComponent}`\
- &nbsp; &nbsp; &nbsp;`dependancy={check}`\
- &nbsp; &nbsp; &nbsp;`delay="1000"`\
- &nbsp; &nbsp; &nbsp;`mount="mount"`\
- &nbsp; &nbsp; &nbsp;`unmount="unmout"`\
- `/>`
-
-`example.css`
-
-`.unmount{`\
-&nbsp; `animation : animation name `\
-`} `
-
-<br/>
-
 ## Features
 
 - Animating components while mounting and unmounting
 
-- You can use different unmount and mount animations for different components ( Because each component can have a specific className )
+- ## You can use different unmount and mount animations for different components ( Because each component can have a specific className )
 
 <br/>
 
@@ -79,15 +126,11 @@ We should assign a classname to the given component ( Delay ) and style it using
 
 > There is custom hook named `useDelayUnmount`.
 
-<br/>
-
 - <pre>import { useDelayUnmount } from "delay-unmount"</pre>
 
 <br/>
 
 > This hook accepts two values
-
-<br/>
 
 - <pre>const show = useDelayUnmount( visible , 300)</pre>
 
@@ -99,15 +142,11 @@ We should assign a classname to the given component ( Delay ) and style it using
 
 > It will return a boolean value ( true or false ). Now you can use it to apply the logic to the component.
 
-<br/>
-
 - <pre>{ show && < YourComponent /> }</pre>
 
 <br/>
 
 > Pass two props to you component
-
-<br/>
 
 - <pre>show && < YourComponent show={show} visible={visible} /></pre>
   - show : the value you getting from the custom hook
@@ -116,8 +155,6 @@ We should assign a classname to the given component ( Delay ) and style it using
 <br/>
 
 > Then take those props from your component
-
-<br/>
 
 - <pre>
   function YourComponent({show , visible}){
@@ -131,8 +168,6 @@ We should assign a classname to the given component ( Delay ) and style it using
 
 > Next were are going to use our logic to implement the unmount animation
 
-<br/>
-
 - <pre>
   function YourComponent({ show, visible }) {
     return (
@@ -143,8 +178,6 @@ We should assign a classname to the given component ( Delay ) and style it using
   }
     </pre>
 
-<br/>
-
 - Here we are assigning a classname to the parent element of the component, the unmount classname will only available when unmounting the Component
 
   - default - Your default classnames
@@ -153,7 +186,7 @@ We should assign a classname to the given component ( Delay ) and style it using
 
 <br/>
 
-> ### **_Now you add the animation or style you needed when unmounting the component through your css file by selecting the classname that you gave._**
+> ### **_Now you can add the animation or style you needed when unmounting the component through your css file by selecting the classname that you gave._**
 
 <br/>
 

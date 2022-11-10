@@ -1,4 +1,7 @@
 yarn-error.log
 example
-node_modules
-src
+/node_modules
+/src
+.babelrc
+.gitignore
+.npmignore
